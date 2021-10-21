@@ -16,13 +16,13 @@
   (define (get_num l x y) (list-ref (list-ref l x) y))
 
   
-  ;Function to get the index set of the rows or columns
+  ;Function to get the index set of the rows or columns of the grid the particular cell is located in
   (define (get_set x)
     (define L '((0 1 2)(3 4 5)(6 7 8)))
     (flatten(filter (lambda(y)(member x y)) L)))
 
   
-  ;Function to get the list of all values of the subgrid(the 3x3 block that our number is currently in)
+  ;Function to get the list of all values of the subgrid (the 3x3 block that our number is currently in)
   (define (subgrid b r c)
     (define-values (rr cc) (values (get_set r) (get_set c)))
     (for*/list ((i rr)(j cc)) (get_num b i j)))
