@@ -4,7 +4,7 @@ It is based on simple systematic backtracking algorithm.
 
 #### Steps involved in the algorithm
 1. Read the rows one by one from left to right and top to bottom, starting with first row and first column. 
-2. If the cell is blank (we are using 0 to denote a black cell), try to put numbers 1-9. 
+2. If the cell is blank (here we are using 0 to denote a black cell), try to put numbers 1-9. 
 3. Each number is checked that it should not be present in that row, column or subgrid. 
 4. If no such number is found, the loop will return to previous level (previous empty cell) and try next number there. 
 5. Once a suitable number is found, it is placed at the site and the loop is started again with next column (if columns are over, it moves over to first column of next row). 
