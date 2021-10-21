@@ -11,18 +11,21 @@ It is based on simple systematic backtracking algorithm.
 6. If all rows and columns are done, it means a solution has been reached and the solution is printed.
 
 #### Procedural abstractions used here
-1. print_board - Used to print the board
-2. get_num - Used to get the number present in the current cell
-3. get_set - Used to get the index set of the rows or columns of the grid the particular cell is located in
-4. subgrid - Used to return the list of all values present in the subgrid the particular cell is located in
-5. check_num? - Used to check if the number being placed in the particular cell is valid
+1. **print_board** - Used to print the board
+2. **get_num** - Used to get the number present in the current cell
+3. **get_set** - Used to get the index set of the rows or columns of the grid the particular cell is located in
+4. **subgrid** - Used to return the list of all values present in the subgrid the particular cell is located in
+5. **check_num?** - Used to check if the number being placed in the particular cell is valid
+<br>
 
-#### Sample Input / Output
+*A set of 5 boards are defined, along with the code itself, with varying level of difficulty to test the working of the code.*
+
+#### Sample Input 1
 ```
 > (Sudoku_solver board1)
 ```
 
-#### Sample Output
+#### Sample Output 1
 ```
 Selected Board is 
 '(0 0 3 0 2 0 6 0 0)
@@ -47,4 +50,35 @@ Solution obtained:
 '(8 1 4 2 5 3 7 6 9)
 '(6 9 5 4 1 7 3 8 2)
 
+```
+
+#### Sample Input 2
+```
+> (Sudoku_solver board5)
+```
+
+#### Sample Output 2
+```
+Selected Board is 
+'(0 0 0 9 7 0 0 0 0)
+'(0 4 0 2 5 0 1 0 7)
+'(0 0 7 6 0 0 4 0 3)
+'(0 1 2 8 0 0 6 0 0)
+'(9 7 0 0 4 0 0 3 5)
+'(0 0 4 0 0 2 9 1 0)
+'(2 0 1 0 0 7 5 0 0)
+'(4 0 9 0 8 1 0 6 0)
+'(0 0 0 0 2 9 0 0 0)
+
+
+Solution obtained:
+'(1 2 3 9 7 4 8 5 6)
+'(8 4 6 2 5 3 1 9 7)
+'(5 9 7 6 1 8 4 2 3)
+'(3 1 2 8 9 5 6 7 4)
+'(9 7 8 1 4 6 2 3 5)
+'(6 5 4 7 3 2 9 1 8)
+'(2 8 1 3 6 7 5 4 9)
+'(4 3 9 5 8 1 7 6 2)
+'(7 6 5 4 2 9 3 8 1)
 ```
