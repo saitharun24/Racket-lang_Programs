@@ -1,13 +1,32 @@
 # Sudoku Solver in Racket Lang
+#### Problem Statement
+Your task is to build a Sudoku solver in Racket.  The problem details are as below.
 
-It is based on simple systematic backtracking algorithm.
+The given board size is 9 x 9 (though you can try solving for smaller size boards!!) 
+
+The board should contain only digits from 1 to 9 or an empty slot (you can represent the empty slot with any special character of your choice). 
+
+Consider the initial configuration of the board (partly filled and partly empty) such that it has got a single unique solution (to help with your strategy!!) 
+
+Given a full board (with no empty slot) your program shall determine whether the given configuration is a valid sudoku solution. 
+
+The sudoku solution must satisfy all the following conditions 
+
+1. Each of the digits 1-9 must occur exactly once in each row. 
+
+2. Each of the digits 1-9 must occur exactly once in each column. 
+
+3. Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid. 
+<br>
+
+*Given solution is based on simple systematic backtracking algorithm.*
 
 #### Steps involved in the algorithm
 1. Read the rows one by one from left to right and top to bottom, starting with first row and first column. 
 2. If the cell is blank (here we are using 0 to denote a black cell), try to put numbers 1-9. 
 3. Each number is checked that it should not be present in that row, column or subgrid. 
 4. If no such number is found, the loop will return to previous level (previous empty cell) and try next number there. 
-5. Once a suitable number is found, it is placed at the site and the loop is started again with next column (if columns are over, it moves over to first column of next row). 
+5. Once a suitable number is found, it is placed at the cell and the loop is started again with next column (if columns are over, it moves over to first column of next row). 
 6. If all rows and columns are done, it means a solution has been reached and the solution is printed.
 
 #### Procedural abstractions used here
@@ -21,12 +40,12 @@ It is based on simple systematic backtracking algorithm.
 *A set of 5 boards are defined, along with the code itself, with varying level of difficulty to test the working of the code.*
 
 #### Sample Input 1
-```
+```racket
 > (Sudoku_solver board1)
 ```
 
 #### Sample Output 1
-```
+```racket
 Selected Board is 
 '(0 0 3 0 2 0 6 0 0)
 '(9 0 0 3 0 5 0 0 1)
@@ -53,12 +72,12 @@ Solution obtained:
 ```
 
 #### Sample Input 2
-```
+```racket
 > (Sudoku_solver board5)
 ```
 
 #### Sample Output 2
-```
+```racket
 Selected Board is 
 '(0 0 0 9 7 0 0 0 0)
 '(0 4 0 2 5 0 1 0 7)
