@@ -1,7 +1,9 @@
 # Sudoku Solver in Racket Lang
 #### Problem Statement
-Your task is to build a Sudoku solver in Racket.  The problem details are as below.
+<blockquote>
+Your task is to build a Sudoku solver in Racket.  
 
+The problem details are as below.
 The given board size is 9 x 9 (though you can try solving for smaller size boards!!) 
 
 The board should contain only digits from 1 to 9 or an empty slot (you can represent the empty slot with any special character of your choice). 
@@ -16,7 +18,8 @@ The sudoku solution must satisfy all the following conditions
 
 2. Each of the digits 1-9 must occur exactly once in each column. 
 
-3. Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid. 
+3. Each of the the digits 1-9 must occur exactly once in each of the nine 3x3 sub-boxes of the grid. 
+</blockquote>
 <br>
 
 *Given solution is based on simple systematic backtracking algorithm.*
