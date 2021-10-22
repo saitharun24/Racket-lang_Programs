@@ -40,7 +40,7 @@ The sudoku solution must satisfy all the following conditions
 5. **check_num?** - Used to check if the number being placed in the particular cell is valid
 <br>
 
-*A set of 5 boards are defined, along with the code itself, with varying level of difficulty to test the working of the code.*
+*A set of 6 boards are initialised, along with the code itself, with varying level of difficulty to test the working of the code.*
 
 #### Sample Input 1
 ```racket
