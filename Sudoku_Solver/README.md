@@ -13,11 +13,8 @@ Consider the initial configuration of the board (partly filled and partly empty)
 Given a full board (with no empty slot) your program shall determine whether the given configuration is a valid sudoku solution. 
 
 The sudoku solution must satisfy all the following conditions 
-
 1. Each of the digits 1-9 must occur exactly once in each row. 
-
 2. Each of the digits 1-9 must occur exactly once in each column. 
-
 3. Each of the the digits 1-9 must occur exactly once in each of the nine 3x3 sub-boxes of the grid. 
 </blockquote>
 <br>
