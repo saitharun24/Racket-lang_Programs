@@ -80,7 +80,8 @@ Solution obtained:
 ```
 <br>
 
-*If you want to just test the code out a set of 6 boards are initialised, along with the code itself, with varying level of difficulty.*
+
+*If you want to just test the code out a set of 6 boards (board1 to board6) are initialised and given along with the code itself, with varying level of difficulty.*
 
 #### Sample Input 1
 ```racket
