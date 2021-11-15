@@ -37,7 +37,44 @@ The sudoku solution must satisfy all the following conditions
 5. **check_num?** - Used to check if the number being placed in the particular cell is valid
 <br>
 
-*A set of 6 boards are initialised, along with the code itself, with varying level of difficulty to test the working of the code.*
+You can upload the board you want solved as a ".txt" file or a ".csv" file. 
+Just give the location of the file in the format given below
+
+```racket
+> (Sudoku_solver (user_board "/path/..../filename"))
+```
+
+#### Sample Output
+```racket
+The file chosen is a ".csv" file.
+
+Selected Board is 
+'(3 0 6 5 0 8 4 0 0)
+'(5 2 0 0 0 0 0 0 0)
+'(0 8 7 0 0 0 0 3 1)
+'(0 0 3 0 1 0 0 8 0)
+'(9 0 0 8 6 3 0 0 5)
+'(0 5 0 0 9 0 6 0 0)
+'(1 3 0 0 0 0 2 5 0)
+'(0 0 0 0 0 0 0 7 4)
+'(0 0 5 2 0 6 3 0 0)
+
+
+Solution obtained:
+'(3 1 6 5 7 8 4 9 2)
+'(5 2 9 1 3 4 7 6 8)
+'(4 8 7 6 2 9 5 3 1)
+'(2 6 3 4 1 5 9 8 7)
+'(9 7 4 8 6 3 1 2 5)
+'(8 5 1 7 9 2 6 4 3)
+'(1 3 8 9 4 7 2 5 6)
+'(6 9 2 3 5 1 8 7 4)
+'(7 4 5 2 8 6 3 1 9)
+
+```
+<br>
+
+*If you want to just test the code out a set of 6 boards are initialised, along with the code itself, with varying level of difficulty.*
 
 #### Sample Input 1
 ```racket
