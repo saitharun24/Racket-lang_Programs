@@ -1,4 +1,5 @@
 #lang racket
+;Main procudure to compute the Sudoku
 (define (Sudoku_solver board)
 
   ;Function to print the board
@@ -16,13 +17,13 @@
   (define (get_num l x y) (list-ref (list-ref l x) y))
 
   
-  ;Function to get the index set of the rows or columns of the grid the particular cell is located in
+  ;Function to get the index set of the rows or columns of the grid for the particular cell
   (define (get_set x)
     (define L '((0 1 2)(3 4 5)(6 7 8)))
     (flatten(filter (lambda(y)(member x y)) L)))
 
   
-  ;Function to get the list of all values of the subgrid (the 3x3 block that our number is currently in)
+  ;Function to get the list of all values of the subgrid(the 3x3 block that our number is currently in)
   (define (subgrid b r c)
     (define-values (rr cc) (values (get_set r) (get_set c)))
     (for*/list ((i rr)(j cc)) (get_num b i j)))
@@ -30,25 +31,46 @@
   
   ;Function to check if the number being placed in the particular cell is valid 
   (define (check_num? b i r c)
-    (or (member i (list-ref b r))                                               ;Check if the number is already in the same row
-        (member i (map (lambda(x)(list-ref x c)) b))                            ;Check if the number is already in the same column
-        (member i (subgrid b r c))))                                            ;Check if the number is already in the grid
+    (or (member i (list-ref b r))                                             ;Check if the number is already in the same row
+        (member i (map (lambda(x)(list-ref x c)) b))                          ;Check if the number is already in the same column
+        (member i (subgrid b r c))))                                          ;Check if the number is already in the grid
 
   
   ;Main procedure where the backtracking happens
   (let loop ((b board) (row 0) (col 0))
     (let ((next (lambda(block)
-                  (cond [(< col 8) (loop block row (add1 col))]                 ;Iterating the columns one by one 
-                        [(< row 8) (loop block (add1 row) 0)]                   ;Iterating the rows one by one
-                        [else (print_board block "Solution obtained:")]))))     ;Printing the board once every cell has been traversed
-      (if (= 0 (get_num b row col))                                             ;Check if the cell is empty
-          (begin (for ((i (range 1 10)))                                        ;If the cell is empty then place values from 1 till 9 while checking whether the particular value can be placed in the cell 
-                   (unless(check_num? b i row col)                              ;Checking if the value can be placed
-                     (define block                                              ;If yes then placing the value in the particular cell and then go to the next cell
+                  (cond [(< col 8) (loop block row (add1 col))]               ;Iterating the columns one by one 
+                        [(< row 8) (loop block (add1 row) 0)]                 ;Iterating the rows one by one
+                        [else (print_board block "Solution obtained:")]))))   ;Printing the board once every cell has been traversed
+      (if (= 0 (get_num b row col))                                           ;Check if the cell is empty
+          (begin (for ((i (range 1 10)))                                      ;If the cell is empty then place values from 1 till 9 while checking whether the particular value can be placed in the cell 
+                   (unless(check_num? b i row col)                            ;Checking if the value can be placed
+                     (define block                                            ;If yes then placing the value in the particular cell and then go to the next cell
                        (list-set b row (list-set (list-ref b row) col i)))
                      (next block))))
-          (next b)))))                                                          ;If the cell already has a value then we go to the next cell
+          (next b)))))                                                        ;If the cell already has a value then we go to the next cell
 
+
+
+;Procedure for reading the contents of the specified file
+(define (readfile location delimiter sudoko_val)
+  (with-input-from-file location   ;D:/External Application/Dr.Racket/Racket Problems/file.txt
+                  (thunk 
+                    (for ([line (in-lines)])
+                        (set! line (map string->number (string-split line delimiter)))
+                      (if (null? sudoko_val)
+                          (set! sudoko_val (list line))
+                          (set! sudoko_val (append sudoko_val (list line)))))))
+  sudoko_val)
+
+;Procedure for checking if the given file is ".csv" or ".txt" and reading the file
+(define (user_board location)
+  (define sudoko_val null)
+  (define ext (substring location (- (string-length location) 4) (string-length location)))
+  (fprintf (current-output-port) "\nThe file chosen is a ~s file.\n\n" ext)
+  (if (equal? ext ".csv")
+      (readfile location "," sudoko_val)
+      (readfile location " " sudoko_val)))
 
 
 ;Initializing a few boards to test our program
