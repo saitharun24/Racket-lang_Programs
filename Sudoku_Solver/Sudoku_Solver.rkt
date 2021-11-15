@@ -1,5 +1,5 @@
 #lang racket
-;Main procudure to compute the Sudoku
+;Main procudure to solve the given Sudoku
 (define (Sudoku_solver board)
 
   ;Function to print the board
