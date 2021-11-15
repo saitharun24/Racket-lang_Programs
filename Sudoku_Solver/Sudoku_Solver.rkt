@@ -63,6 +63,7 @@
                           (set! sudoko_val (append sudoko_val (list line)))))))
   sudoko_val)
 
+
 ;Procedure for checking if the given file is ".csv" or ".txt" and reading the file
 (define (user_board location)
   (define sudoko_val null)
@@ -71,6 +72,7 @@
   (if (equal? ext ".csv")
       (readfile location "," sudoko_val)
       (readfile location " " sudoko_val)))
+
 
 
 ;Initializing a few boards to test our program
