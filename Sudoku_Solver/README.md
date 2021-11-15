@@ -44,6 +44,12 @@ Just give the location of the file in the format given below
 > (Sudoku_solver (user_board "/path/..../filename"))
 ```
 
+
+#### Sample Input 
+```racket
+> (Sudoku_solver (user_board "/unsolved_sudoku.csv"))
+```
+
 #### Sample Output
 ```racket
 The file chosen is a ".csv" file.
