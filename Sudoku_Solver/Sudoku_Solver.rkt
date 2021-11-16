@@ -55,6 +55,7 @@
 ;Procedure for generating a board by asking the user to input individual values for each cell row wise
 (define (input_user_board)
   (displayln "")
+  
 (define (length lis)
    (cond ((null? lis)
           0)
@@ -67,11 +68,13 @@
 (define grid (list))
 (define rows 0)
 (define value -1)
+
 (define (read-iter)
   (set! value (read))
   (cond ((not (and (> value -1) (< value 10)))
          (begin (displayln "Error: Inconsistent value entered")
                 (display "Enter another valid number : ") (read-iter)))))
+                
 (define (row-iter)
   (cond ((< rows n)
          (begin
