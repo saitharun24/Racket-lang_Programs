@@ -52,7 +52,7 @@
 
 
 
-;Procedure for generating a board by asking the user to input individual values
+;Procedure for generating a board by asking the user to input individual values for each cell row wise
 (define (input_user_board)
   (displayln "")
 (define (length lis)
@@ -60,7 +60,7 @@
           0)
          (else
           (+ 1 (length (cdr lis))))))
-
+          
 (define m 9)
 (define n 9)
 
@@ -71,8 +71,7 @@
   (set! value (read))
   (cond ((not (and (> value -1) (< value 10)))
          (begin (displayln "Error: Inconsistent value entered")
-                (display "Enter another valid number : ") (read-iter))
-  )))
+                (display "Enter another valid number : ") (read-iter)))))
 (define (row-iter)
   (cond ((< rows n)
          (begin
@@ -90,24 +89,14 @@
                      (read-iter)
                      (set! lst (append lst (list value)))
                      (set! value -1)
-                     (val-iter)
-                     )
-                   ))
-               )
-             (begin (val-iter) (set! grid (append grid (list lst))) (set! rows (+ rows 1)))
-             )
+                     (val-iter)))))
+             (begin (val-iter) (set! grid (append grid (list lst))) (set! rows (+ rows 1))))
            (displayln "")
-           (row-iter)
-           )
-         )
-     )
-  )
-
+           (row-iter)))))
 (row-iter)
 (displayln "")
 (displayln "")
-grid
-)
+grid)
 
 
 
@@ -123,7 +112,7 @@ grid
   sudoko_val)
 
 
-;Procedure for checking if the given file is ".csv" or ".txt" and reading the file
+;Procedure for uploading the board from a file while checking if the given file is ".csv" or ".txt"
 (define (load_user_board location)
   (define sudoko_val null)
   (define ext (substring location (- (string-length location) 4) (string-length location)))
