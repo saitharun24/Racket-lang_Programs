@@ -40,8 +40,9 @@ The sudoku solution must satisfy all the following conditions
 7. **length** - Used to return the length of the given list 
 8. **read-iter** - Used to read value from the user by checking if the value is a consistent value or not (by consistent we mean that the value should follow the 3 sudoku conditions)
 9. **val-iter** - Used to append the values to the respective cell
-10. **readfile** - Used to read the contents of the file, specified by the path of the file.
-11. **load_user_board** - Used to load the board read from the file using the procedure *readfile*
+10. **row-iter** - Used to collect all the values of a specified row as a list and then append it into the board list
+11. **readfile** - Used to read the contents of the file, specified by the path of the file.
+12. **load_user_board** - Used to load the board read from the file using the procedure *readfile*
 <br>
 
 You can upload the board you want solved as a ".txt" file or a ".csv" file. 
