@@ -83,6 +83,7 @@
            (display "th row : ")
            (newline)
            (let ((lst (list)))
+           
              (define (val-iter)
                (cond ((< (length lst) m)
                    (begin
