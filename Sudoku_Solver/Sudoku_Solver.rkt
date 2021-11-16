@@ -1,5 +1,5 @@
 #lang racket
-;Main procudure to solve the given Sudoku
+;Main procudure to compute the Sudoku
 (define (Sudoku_solver board)
 
   ;Function to print the board
@@ -52,6 +52,65 @@
 
 
 
+;Procedure for generating a board by asking the user to input individual values
+(define (input_user_board)
+  (displayln "")
+(define (length lis)
+   (cond ((null? lis)
+          0)
+         (else
+          (+ 1 (length (cdr lis))))))
+
+(define m 9)
+(define n 9)
+
+(define grid (list))
+(define rows 0)
+(define value -1)
+(define (read-iter)
+  (set! value (read))
+  (cond ((not (and (> value -1) (< value 10)))
+         (begin (displayln "Error: Inconsistent value entered")
+                (display "Enter another valid number : ") (read-iter))
+  )))
+(define (row-iter)
+  (cond ((< rows n)
+         (begin
+           (display "Enter values for ")
+           (display (+ rows 1))
+           (display "th row : ")
+           (newline)
+           (let ((lst (list)))
+             (define (val-iter)
+               (cond ((< (length lst) m)
+                   (begin
+                     (display "Enter ")
+                     (display (+ (length lst) 1))
+                     (display "th value : ")
+                     (read-iter)
+                     (set! lst (append lst (list value)))
+                     (set! value -1)
+                     (val-iter)
+                     )
+                   ))
+               )
+             (begin (val-iter) (set! grid (append grid (list lst))) (set! rows (+ rows 1)))
+             )
+           (displayln "")
+           (row-iter)
+           )
+         )
+     )
+  )
+
+(row-iter)
+(displayln "")
+(displayln "")
+grid
+)
+
+
+
 ;Procedure for reading the contents of the specified file
 (define (readfile location delimiter sudoko_val)
   (with-input-from-file location   ;D:/External Application/Dr.Racket/Racket Problems/file.txt
@@ -65,7 +124,7 @@
 
 
 ;Procedure for checking if the given file is ".csv" or ".txt" and reading the file
-(define (user_board location)
+(define (load_user_board location)
   (define sudoko_val null)
   (define ext (substring location (- (string-length location) 4) (string-length location)))
   (fprintf (current-output-port) "\nThe file chosen is a ~s file.\n\n" ext)
