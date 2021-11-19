@@ -49,13 +49,13 @@ You can upload the board you want solved as a ".txt" file or a ".csv" file.
 Just give the location of the file in the format given below
 
 ```racket
-> (Sudoku_solver (user_board "/path/..../filename"))
+> (Sudoku_solver (load_user_board "/path/..../filename"))
 ```
 
 
 #### Sample Input 
 ```racket
-> (Sudoku_solver (user_board "/unsolved_sudoku.csv"))
+> (Sudoku_solver (load_user_board ".../unsolved_sudoku.csv"))
 ```
 
 #### Sample Output
